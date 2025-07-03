@@ -1,0 +1,20 @@
+[project]
+name = "lunchboxhub"
+version = "0.1.0"
+description = "LunchBoxHub - A FastAPI microservice for food ordering and recommendations"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dotenv>=0.9.9",
+    "fastapi>=0.115.14",
+    "httpx>=0.28.1",
+    "ipykernel>=6.29.5",
+    "psycopg2>=2.9.10",
+    "pydantic>=2.11.7",
+    "pytest>=8.4.1",
+    "requests>=2.32.4",
+    "rich>=14.0.0",
+    "sqlalchemy>=2.0.41",
+    "uvicorn>=0.35.0",
+]
+

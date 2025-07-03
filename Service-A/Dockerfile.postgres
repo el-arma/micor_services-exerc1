@@ -1,0 +1,21 @@
+# Use the official PostgreSQL image - Alpine Linux version (lightweight)
+FROM postgres:16-alpine
+
+# Set environment variables for PostgreSQL
+ENV POSTGRES_DB=lunchboxdb
+ENV POSTGRES_USER=admin
+ENV POSTGRES_PASSWORD=password
+
+# Expose the PostgreSQL port
+EXPOSE 5432
+
+# The official postgres image already has the proper CMD
+# CMD ["postgres"]
+
+#########################################################################################
+
+# to Build:
+    # docker build -f Dockerfile.postgres -t lunchbox-postgres .
+
+# to Run:
+    # docker run -d -p 5432:5432 --name lunchbox-db lunchbox-postgres
