@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  db:
+    build:
+      context: ./Service-A
+      dockerfile: Dockerfile.postgres
+    container_name: lunchbox-db
+    environment:
+      POSTGRES_DB: lunchboxdb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - lunchnet
+
+  service-a:
+    build:
+      context: ./Service-A
+    container_name: lunchbox-api
+    env_file:
+      - ./Service-A/.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - service-c
+    networks:
+      - lunchnet
+
+  service-c:
+    build:
+      context: ./Service-C
+    container_name: lunchbox-recommender
+    ports:
+      - "3000:3000"
+    networks:
+      - lunchnet
+
+volumes:
+  pgdata:
+
+networks:
+  lunchnet:
+
+# to run:
+# docker-compose up --build
+
+# to start already existing containers:
+# docker-compose start

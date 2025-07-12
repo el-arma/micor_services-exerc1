@@ -56,7 +56,7 @@ def take_orders(order_data: OrderSchema) -> dict[str, str]:
     # Save to database
     save_order_to_db(order_data)
 
-    logger.info(f"💾 Order saved order to DB")
+    logger.info("💾 Order saved to DB")
 
     return {"status": "success", "message": "Order saved"}
 
