@@ -46,8 +46,26 @@ volumes:
 networks:
   lunchnet:
 
-# to run:
-# docker-compose up --build
 
 # to start already existing containers:
 # docker-compose start
+
+# to stop: 
+# docker-compose stop
+
+# to run:
+# docker-compose up --build
+# docker-compose up -d
+
+# to create images and run:
+# docker-compose up
+
+# same, but in detached mode:
+# docker-compose up -d
+
+# awlays creates a new images:
+# docker-compose up --build
+
+# just builds without running
+# docker-compose build
+
